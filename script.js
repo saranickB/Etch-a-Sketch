@@ -20,9 +20,7 @@ function opacityGenerator(){
     if(eventCounter > 10){
         return;
     }
-    for (let i =1; i <=10; i++){
-        return (i/10)*100;
-    }
+    return (eventCounter/10)*100;
 }
 
 function GridSelector(value){
@@ -35,7 +33,7 @@ function GridSelector(value){
 
     grid.addEventListener("mouseenter", () =>{
         eventCounter ++;
-        grid.style.background = rgb(rgbGenerator(),rgbGenerator(),rgbGenerator() / opacityGenerator()`%`);
+        grid.style.background = rgb(rgbGenerator(),rgbGenerator(),rgbGenerator() / opacityGenerator(eventCounter)`%`);
     });
     grid.addEventListener("mouseleave", () =>{
         grid.style.backgroundColor = "white";

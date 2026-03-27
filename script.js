@@ -16,7 +16,7 @@ function rgbGenerator(){
     // equation used is Math.floor(Math.random() * (max - min +1)+ min) with max value at 255 and min at 0
 }
 
-function opacityGenerator(){
+function opacityGenerator(eventCounter){
     if(eventCounter > 10){
         return;
     }

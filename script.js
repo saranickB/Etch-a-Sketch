@@ -1,7 +1,7 @@
 const container = document.querySelector(".container");
 const button = document.querySelector("button");
 
-const eventCounter = 0;
+let eventCounter = 0;
 
 button.addEventListener("click", () =>{
     let num = +window.prompt("Enter number of Grids");
@@ -18,7 +18,7 @@ function rgbGenerator(){
 
 function opacityGenerator(eventCounter){
     if(eventCounter > 10){
-        return;
+        return 100;
     }
     return (eventCounter/10)*100;
 }
@@ -33,7 +33,7 @@ function GridSelector(value){
 
     grid.addEventListener("mouseenter", () =>{
         eventCounter ++;
-        grid.style.background = rgb(rgbGenerator(),rgbGenerator(),rgbGenerator() / opacityGenerator(eventCounter)`%`);
+        grid.style.background = `rgb(${rgbGenerator()} ${rgbGenerator()} ${rgbGenerator()} / ${opacityGenerator(eventCounter)}% )`;
     });
     grid.addEventListener("mouseleave", () =>{
         grid.style.backgroundColor = "white";

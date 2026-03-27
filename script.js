@@ -1,6 +1,8 @@
 const container = document.querySelector(".container");
 const button = document.querySelector("button");
 
+const eventCounter = 0;
+
 button.addEventListener("click", () =>{
     let num = +window.prompt("Enter number of Grids");
     if (num<=0 || num >100 || isNaN(num)) {
@@ -8,6 +10,20 @@ button.addEventListener("click", () =>{
     }
     GridSelector(num);
 });
+
+function rgbGenerator(){
+    return Math.floor(Math.random() * 256);
+    // equation used is Math.floor(Math.random() * (max - min +1)+ min) with max value at 255 and min at 0
+}
+
+function opacityGenerator(){
+    if(eventCounter > 10){
+        return;
+    }
+    for (let i =1; i <=10; i++){
+        return (i/10)*100;
+    }
+}
 
 function GridSelector(value){
     container.innerHTML = '';
@@ -18,7 +34,8 @@ function GridSelector(value){
     container.appendChild(grid);
 
     grid.addEventListener("mouseenter", () =>{
-        grid.style.backgroundColor = "red";
+        eventCounter ++;
+        grid.style.background = rgb(rgbGenerator(),rgbGenerator(),rgbGenerator() / opacityGenerator()`%`);
     });
     grid.addEventListener("mouseleave", () =>{
         grid.style.backgroundColor = "white";
